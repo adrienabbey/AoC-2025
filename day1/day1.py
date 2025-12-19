@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
+"""
+AoC 2025 Day 1 in Python
+
+Author: Adrien Abbey
+Date: 2025-12-19
+"""
 
 from pathlib import Path
 
 INPUT_FILE_PATH = "day1input.txt"
+TESTING = True
 
 
 def load_input(path: str | Path) -> list[str]:
@@ -19,7 +26,8 @@ def load_input(path: str | Path) -> list[str]:
 
 def main() -> None:
     file_contents = load_input(INPUT_FILE_PATH)
-    print(f"Loaded {len(file_contents)} lines.")
+    if TESTING:
+        print(f"Loaded {len(file_contents)} lines.")
 
 
 if __name__ == "__main__":
