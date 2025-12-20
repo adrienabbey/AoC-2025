@@ -20,7 +20,8 @@ from pathlib import Path
 # =====================================
 
 INPUT_FILE_PATH = "day1input.txt"
-TESTING = False
+TESTING = True
+PART_TWO = True  # Solve for part two, or part one
 location = 50   # Tracks dial location, starting at 50
 total_count = 0  # Track the number of times a rotation ended on zero
 
@@ -70,6 +71,7 @@ def rotate(direction: str, count: int) -> None:
     :type count: int
     """
     global location  # Make the location variable editable
+    global total_count
 
     # Rotate the dial in the correct direction and number of times:
     if direction == "L":
@@ -82,8 +84,16 @@ def rotate(direction: str, count: int) -> None:
     # Constrain the location to valid locations:
     while location > 99 or location < 0:
         if location > 99:
+            if PART_TWO:
+                if TESTING:
+                    print(f"Location was {location}.  Now {location-100}")
+                total_count += 1  # Update the counter for part two
             location -= 100
         if location < 0:
+            if PART_TWO:
+                if TESTING:
+                    print(f"Location was {location}.  Now {location+100}")
+                total_count += 1  # Update the counter for part two
             location += 100
 
 
